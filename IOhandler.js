@@ -20,7 +20,9 @@ const unzipper = require("unzipper"),
  * @param {string} pathOut
  * @return {promise}
  */
-const unzip = (pathIn, pathOut) => {};
+const unzip = (pathIn, pathOut) => {
+  fs.createReadStream('path/to/')
+};
 
 /**
  * Description: read all the png files from given directory and return Promise containing array of each png file path
@@ -28,7 +30,10 @@ const unzip = (pathIn, pathOut) => {};
  * @param {string} path
  * @return {promise}
  */
-const readDir = (dir) => {};
+const readDir = (dir) => {
+  //fs.readdir
+  // ONLY PNG FILES 
+};
 
 /**
  * Description: Read in png file by given pathIn,
@@ -38,7 +43,24 @@ const readDir = (dir) => {};
  * @param {string} pathProcessed
  * @return {promise}
  */
-const grayScale = (pathIn, pathOut) => {};
+const grayScale = (pathIn, pathOut) => {
+  fs.createReadStream("in.png")
+  .pipe(
+    new PNG()
+  )
+  
+  .on("parsed", function() {
+    for (var y = 0; y < this.height; y++) {
+      for (var x = 0; x < this.width; x++) {
+        var idx = (this.width * y + x) << 2;
+
+        this.data[idx] = 255 - this.data[idx];
+        this.data[idx + 1] = 255 - this.data[idx + 1];
+        this.data[idx + 2] = 255 - this.data[idx + 2];
+      }
+    }
+  })
+};
 
 module.exports = {
   unzip,
