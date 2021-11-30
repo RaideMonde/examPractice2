@@ -21,7 +21,10 @@ const unzipper = require("unzipper"),
  * @return {promise}
  */
 const unzip = (pathIn, pathOut) => {
-  fs.createReadStream('path/to/')
+  fs.createReadStream(`path/to/${pathIn}`)
+  .pipe(unzipper.Extract({path: `output/${pathOut}`}));
+
+  console.log("Extraction operation complete")
 };
 
 /**
@@ -67,3 +70,4 @@ module.exports = {
   readDir,
   grayScale,
 };
+
