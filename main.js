@@ -1,10 +1,10 @@
 /*
- * Project:
+ * Project: Exam practice 2
  * File Name: main.js
  * Description:
  *
- * Created Date:
- * Author:
+ * Created Date: November 24th
+ * Author: Rahul Singh
  *
  */
 
