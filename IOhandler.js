@@ -22,7 +22,7 @@ const unzipper = require("unzipper"),
  */
 const unzip = (pathIn, pathOut) => {
   fs.createReadStream(`path/to/${pathIn}`)
-  .pipe(unzipper.Extract({path: `output/${pathOut}`}));
+  .pipe(unzipper.Extract({path: `output/unzipped`}));
 
   console.log("Extraction operation complete")
 };
