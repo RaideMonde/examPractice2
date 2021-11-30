@@ -34,6 +34,7 @@ const unzip = (pathIn, pathOut) => {
  * @return {promise}
  */
 const readDir = (dir) => {
+  let fileArray = []
   //fs.readdir
   // ONLY PNG FILES 
 };
@@ -57,9 +58,11 @@ const grayScale = (pathIn, pathOut) => {
       for (var x = 0; x < this.width; x++) {
         var idx = (this.width * y + x) << 2;
 
-        this.data[idx] = 255 - this.data[idx];
-        this.data[idx + 1] = 255 - this.data[idx + 1];
-        this.data[idx + 2] = 255 - this.data[idx + 2];
+        let avg = (this.data[idx] + this.data[idx+1] + this.data[idx+2]) /3
+
+        this.data[idx] = avg
+        this.data[idx + 1] = avg
+        this.data[idx + 2] = avg
       }
     }
   })
